@@ -1,0 +1,231 @@
+@import "../utils/variables";
+@import "../utils/mixin";
+@import "../utils/placeholders";
+
+html {
+  font-family: $police;
+}
+
+/*BARRE DE NAVIGATION*/
+
+nav {
+  @extend %flex-center;
+  height: 55px;
+  width: 100%;
+  background-color: $background-color;
+
+  .navigation {
+    @extend %flex-center;
+
+    .logo {
+      margin-right: 15px;
+    }
+    .search-nav {
+      display: flex;
+      flex-direction: row;
+      background-color: white;
+      border-radius: 5px;
+      width: 280px;
+    }
+
+    input {
+      width: 240px;
+      height: 40px;
+      border-radius: 5px;
+    }
+
+    a {
+      @extend %flex-center;
+      background-color: grey;
+      width: 40px;
+      border-radius: 5px;
+    }
+  }
+
+  ul {
+    @extend %flex-center;
+    margin-left: 100px;
+    height: 55px;
+
+    & :nth-child(8) {
+      border-right: 1px solid grey;
+      border-left: 1px solid grey;
+    }
+
+    li {
+      margin: 0 10px;
+      height: 100%;
+      @extend %flex-center;
+    }
+    p {
+      color: $text_color_primary;
+    }
+  }
+}
+
+a {
+  @include font-size;
+}
+
+nav ul .img-nav {
+  height: 100%;
+  width: 80px;
+
+  img {
+    @include logo-nav-size;
+  }
+
+  a {
+    @extend %flex-center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.myprofil {
+  width: 100%;
+  height: 100%;
+  width: 120px;
+
+  a {
+    @extend %flex-center;
+
+    span {
+      @include flex(flex, 0, 0);
+    }
+  }
+  .photo-profils {
+    @include profil-img;
+    height: 35px;
+    width: 35px;
+    margin-right: 15px;
+  }
+  .img-triangle {
+    margin-left: 5px;
+    height: 10px;
+    width: 10px;
+  }
+}
+
+/* BODY */
+
+.boite {
+  @include size(1080px, 1050px);
+  margin: 60px 35% 0 35%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1 fr 1fr;
+  grid-gap: 30px;
+}
+
+.titre {
+  @include size(1080px, 60px);
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+
+  h1 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.entreprise {
+  height: 310px;
+  @include border;
+}
+
+.presentation {
+  @extend %flex-center;
+  flex-direction: column;
+  margin: 15px 0 15px 0;
+
+  img {
+    @include profil-img;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    color: $text_color_tertiary;
+  }
+}
+
+.links {
+  @extend %flex-center;
+  border-bottom: 1px solid black;
+
+  img {
+    @include size(15px, 15px);
+  }
+  a {
+    margin-right: 5px;
+    @include border;
+    border-radius: 7px;
+    margin-bottom: 40px;
+
+    &:nth-child(1) {
+      background-color: #53d690;
+      padding: 5px;
+    }
+    &:nth-child(2) {
+      background-color: $background-color;
+      padding: 5px 10px;
+    }
+    &:nth-child(3) {
+      background-color: blue;
+      padding: 5px;
+    }
+  }
+}
+
+.view-profile {
+  @extend %flex-center;
+  margin-top: 20px;
+
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+}
+
+.foot {
+  @extend %flex-center;
+  margin-top: 80px;
+
+  ul {
+    @extend %flex-center;
+
+    li {
+      color: $text_color_tertiary;
+
+      margin-right: 5px;
+      &:after {
+        content: "|";
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.copyright {
+  @extend %flex-center;
+
+  img {
+    @include size(40px, 40px);
+  }
+
+  p {
+    color: $text_color_tertiary;
+  }
+}
